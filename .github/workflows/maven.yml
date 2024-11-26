@@ -11,10 +11,10 @@ jobs:
     runs-on: ubuntu-latest
 
     permissions:
-      contents: read      # Necessário para ler o código
-      issues: write       # Necessário para criar ou atualizar issues de segurança
-      actions: read       # Permissões para a execução de ações
-      security-events: write  # Permite registrar eventos de segurança
+      contents: read        # Permissão para ler o conteúdo do repositório
+      issues: write         # Permissão para criar issues de segurança
+      actions: read         # Permissão para executar ações
+      security-events: write  # Permissão para interagir com o gráfico de dependências
 
     steps:
     - uses: actions/checkout@v4
@@ -27,5 +27,5 @@ jobs:
     - name: Build with Maven
       run: mvn install
 
-    - name: Update dependency graph
+    - name: Submit Maven Dependency Graph Snapshot
       uses: advanced-security/maven-dependency-submission-action@571e99aab1055c2e71a1e2309b9691de18d6b7d6
