@@ -11,10 +11,10 @@ jobs:
     runs-on: ubuntu-latest
 
     permissions:
-      contents: read   # Necessário para ler o código
-      issues: write    # Necessário para criar dependabot ou atualizações de segurança
-      actions: read    # Permissões para a ação
-      security-events: write  # Permite escrever eventos de segurança, como gráficos de dependências
+      contents: read      # Necessário para ler o código
+      issues: write       # Necessário para criar ou atualizar issues de segurança
+      actions: read       # Permissões para a execução de ações
+      security-events: write  # Permite registrar eventos de segurança
 
     steps:
     - uses: actions/checkout@v4
