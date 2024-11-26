@@ -1,22 +1,25 @@
 package org.example;
 
-public class Imovel_Match {
+// Classe que contém os métodos utilitários
+public class EstacionamentoUtils {
 
-    public double calcularPrecoPorMetroQuadrado(double preco, double area) {
-        return preco / area;
+    // Método 1: Calcular o valor total com base no tempo (horas) e valor por hora
+    public static double calcularValorTotal(double valorPorHora, int horas) {
+        return valorPorHora * horas;
     }
 
-    public boolean compararPrecos(double preco1, double preco2) {
-        return preco1 < preco2; // Retorna true se o primeiro imóvel é mais barato que o segundo
+    // Método 2: Verificar vagas disponíveis
+    public static int vagasDisponiveis(int totalVagas, int vagasOcupadas) {
+        return totalVagas - vagasOcupadas;
     }
 
-    // Método para calcular a diferença de preço entre dois imóveis
-    public double calcularDiferencaPreco(double preco1, double preco2) {
-        return Math.abs(preco1 - preco2);
+    // Método 3: Controlar tempo restante da estadia
+    public static double tempoRestante(double horasPermitidas, double horasUsadas) {
+        return Math.max(horasPermitidas - horasUsadas, 0); // Garante que o tempo restante não seja negativo
     }
 
-    // Método para verificar se um imóvel está dentro de um orçamento
-    public boolean estaDentroDoOrcamento(double preco, double orcamento) {
-        return preco <= orcamento; // Retorna true se o preço do imóvel está dentro do orçamento
+    // Método 4: Registrar pagamentos e atualizar parcelas
+    public static double atualizarParcelas(double valorTotal, double valorPago) {
+        return Math.max(valorTotal - valorPago, 0); // Calcula o saldo restante
     }
 }
